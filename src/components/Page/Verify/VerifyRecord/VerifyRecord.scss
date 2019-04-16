@@ -1,0 +1,142 @@
+.verify-record {
+  .verify-record_content-search-status {
+    margin: 0.55rem 0 0;
+
+    .verify-record_status-count-wrap {
+      background: #fff;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      border-top: 1px solid #ccc;
+      .verify-record_status-count-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0.1rem 0 0.1rem;
+        width: 30%;
+        border-right: 1px solid #ccc;
+        &:last-child {
+          border-right: none;
+        }
+        .verify-record_title {
+          color: #444;
+          font-size: 0.1rem;
+          margin-bottom: 0.05rem;
+        }
+        .verify-record_count {
+          color: #007ccd;
+          font-size: 0.16rem;
+          font-weight: 600;
+        }
+      }
+    }
+    .verify-record_search {
+      background: #fff;
+      padding: 0.1rem 0.2rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .verify-record_status,
+      .verify-record_date {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .verify-record_status {
+        padding: 0 20px;
+      }
+    }
+  }
+
+  .verfiy-record_content {
+    margin: 0.15rem;
+    overflow-y: scroll;
+    height: 4.5rem;
+    -webkit-overflow-scrolling: touch;
+    .loader {
+      text-align: center;
+      color: #999;
+    }
+    .verify-record_content-item {
+      background: #fff;
+      padding: 0.1rem 0.2rem;
+      margin-bottom: 0.1rem;
+      .verify-record_content-coupon-info {
+        margin-bottom: 0.15rem;
+        .verify-record_coupon-title-logo {
+          display: flex;
+          flex-direction: row;
+
+          .verify-record_title-code {
+            width: 75%;
+            .verify-record_title {
+              color: #007ccd;
+              font-size: 0.16rem;
+              font-weight: 700;
+              margin-bottom: 0.1rem;
+            }
+            .verify-record_code {
+              border: 1px solid #222;
+              padding: 0.1rem;
+              color: #222;
+              border-radius: 0.05rem;
+              width: 35vw;
+              text-align: center;
+            }
+          }
+          .verify-record_content-item-logo {
+            width: 25%;
+            margin-left: 0.2rem;
+            img {
+              width: 100%;
+            }
+          }
+        }
+        .verify-record_point-date {
+          color: #666;
+          font-size: 0.1rem;
+          .verify-record_point-date-item {
+            margin-bottom: 0.05rem;
+          }
+        }
+      }
+
+      .verify-record_content-coupon-people {
+        border-top: 1px dashed #807e7e;
+        display: flex;
+        flex-direction: row;
+        padding-top: 0.15rem;
+        justify-content: space-between;
+        .verify-record_coupon-people {
+          width: 80;
+          .verify-record_coupon-people-item {
+            color: #666;
+            font-size: 0.1rem;
+            margin-bottom: 0.05rem;
+          }
+        }
+        .verify-record_coupon-people-status {
+          width: 20%;
+          margin-left: 0.2rem;
+          font-size: 0.12rem;
+          font-weight: 600;
+          text-align: center;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          .verify-record_status {
+            padding: 0.05rem;
+          }
+          .coupon-use {
+            background: #00d0ac;
+          }
+          .coupon-no-use {
+            background: #ff8ca4;
+          }
+        }
+      }
+    }
+  }
+}

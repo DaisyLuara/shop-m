@@ -1,0 +1,37 @@
+.my-menu-wrap {
+  padding: 0 0.15rem;
+  
+  .my-menu-wrap_item {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background: #fff;
+    align-items: center;
+    padding: 0.15rem 0.1rem 0.15rem 0.2rem;
+    margin-top:0.1rem;
+    .my-menu-wrap_title {
+      width: 70%;
+      color: #444;
+      font-size: 0.16rem;
+    }
+    .my-menu-wrap_icon {
+      width: 10%;
+      img {
+        width: 50%;
+      }
+    }
+    .my-menu-wrap_right {
+      text-align: right;
+      width: 20%;
+      img {
+        width: 45%;
+      }
+    }
+    &:last-child{
+      margin-top: 0.2rem;
+    }
+  }
+  .cancel{
+    background:#000;
+  }
+}

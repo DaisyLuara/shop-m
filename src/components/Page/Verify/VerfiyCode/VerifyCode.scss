@@ -1,0 +1,33 @@
+html:not([data-scale]) .am-list-body::before,
+html:not([data-scale]) .am-list-body::after {
+  background: #fff;
+}
+.verify-code {
+  .verify-code_content {
+    margin: 0.55rem 0.15rem 0.15rem;
+    .verify-code_content-item {
+      margin-bottom: 0.1rem;
+      .am-list-header {
+        padding-top: 0;
+      }
+      .am-list-body {
+        border-radius: 0.1rem;
+        border: none;
+      }
+      .am-list-item.am-input-item {
+        border-radius: 0.1rem;
+        border: none;
+      }
+    }
+    .verify-code_btn {
+      margin-top: 0.25rem;
+      background: linear-gradient(to right, #007ccd, #00d1cf, #00f5d1);
+      text-align: center;
+      border-radius: 0.2rem;
+      color: #fff;
+      font-size: 0.18rem;
+      font-weight: 600;
+      padding: 0.12rem 0.1rem;
+    }
+  }
+}

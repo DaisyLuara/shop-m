@@ -1,0 +1,40 @@
+.product_introduce {
+  margin: 0 0.15rem;
+  background: #fff;
+  padding-bottom: 0.01rem;
+  margin-top: -0.3rem;
+  .product_introduce_item {
+    margin-bottom: 0.1rem;
+    background: #fff;
+    .product_introduce_detail-item {
+      padding: 0.15rem 0;
+      margin: 0 0.15rem;
+      position: relative;
+      border-bottom: 1px solid #ddd;
+      color: #222;
+      font-size: 0.12rem;
+      .product_introduce_detail-item-title {
+        margin-left: 0.47rem;
+        margin-right: 0.2rem;
+      }
+      .product_introduce_right {
+        position: absolute;
+        right: 0;
+        top: 25%;
+        color: #ccc;
+      }
+    }
+  }
+  .am-accordion-item {
+    .am-accordion-header {
+      background: #e0e0e0;
+    }
+  }
+}
+html:not([data-scale])
+  .am-accordion
+  .am-accordion-item
+  .am-accordion-content
+  .am-accordion-content-box::after {
+  background: none;
+}

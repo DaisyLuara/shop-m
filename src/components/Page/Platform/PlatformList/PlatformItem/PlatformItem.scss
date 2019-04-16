@@ -1,0 +1,58 @@
+.platform-list_content-item {
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  padding: 0.15rem 0.2rem;
+  margin-bottom: 0.1rem;
+  position: relative;
+  .platform-list_content-item-logo {
+    width: 30%;
+    img {
+      width: 80%;
+    }
+    .platform-list_content-item-status {
+      width: 80%;
+      text-align: center;
+      color: #fff;
+      font-size: 0.1rem;
+      padding: 0.03rem 0;
+      font-weight: 600;
+      margin-top: 0.05rem;
+    }
+    .success {
+      background: #00d0ac;
+    }
+    .error {
+      background: #ff8ca4;
+    }
+  }
+  .platform-list_content-item-info {
+    width: 70%;
+    .platform-list_name {
+      color: #3e8fc9;
+      font-size: 0.16rem;
+      font-weight: 600;
+      margin-bottom: 0.05rem;
+    }
+    .platform-list_type {
+      color: #3e8fc9;
+      font-size: 0.14rem;
+      font-weight: 400;
+    }
+    .platform-list_per {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      .platform-list_per-item {
+        background: #eff2f7;
+        padding: 0.02rem 0.1rem;
+        margin-right: 8px;
+        margin-bottom: 10px;
+        font-size: 0.1rem;
+        border-radius: 10px;
+        color: #444;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.platfrom-list {
+  .platfrom-list_content-header {
+    background: #fff;
+    margin-top: 0.4rem;
+    padding: 0.2rem 0.15rem 0.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .platfrom-list_content-header-info {
+      border: 1px solid #00d1cf;
+      width: 45%;
+      padding: 0.08rem 0;
+      border-radius: 0.08rem;
+      color: #00d1cf;
+      font-size: 0.12rem;
+      text-align: center;
+      margin-left: 0.1rem;
+      .platfrom-list_num {
+        font-size: 0.14rem;
+        font-weight: 700;
+      }
+    }
+    .platfrom-list_content-header-btn {
+      width: 45%;
+      color: #fff;
+      font-size: 0.12rem;
+      margin-right: 0.1rem;
+      padding: 0.1rem 0;
+      border-radius: 0.08rem;
+      text-align: center;
+      font-weight: 600;
+      background: linear-gradient(to right, #007ccd, #00d1cf, #00f5d1);
+    }
+  }
+  .platform-list-content {
+    padding: 0.15rem;
+    overflow-y: scroll;
+    height: 4.5rem;
+    -webkit-overflow-scrolling: touch;
+    .loader {
+      text-align: center;
+      color: #999;
+    }
+   
+  }
+}

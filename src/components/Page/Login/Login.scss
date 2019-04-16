@@ -1,0 +1,113 @@
+$url: 'http://cdn.xingstation.cn/shopM/img/';
+$version: 0;
+
+.login-wrapper {
+  display: flex;
+  background-image: url($url+'login_bg.png?v='+$version);
+  flex-direction: column;
+  align-items: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+  .login-wrapper_circle-top {
+    position: absolute;
+    width: 40vw;
+    left: -0.73rem;
+    top: -0.72rem;
+  }
+  .login-wrapper_circle-bottom {
+    position: absolute;
+    width: 60vw;
+    bottom: -1.1rem;
+    right: -1.1rem;
+  }
+  .login-wrapper_logo-text {
+    position: absolute;
+    bottom: 0.3rem;
+    width: 30vw;
+    left: 35%;
+    right: 35%;
+  }
+  .login-wrapper_logo-top {
+    // position: absolute;
+    // width: 20vw;
+    // top: 0.65rem;
+    position: absolute;
+    width: 20vw;
+    top: 0.65rem;
+    left: 40%;
+    right: 40%;
+  }
+  .login-wrapper_title-wrapper {
+    color: #fff;
+    position: absolute;
+    top: 1.8rem;
+    width: 44vw;
+    left: 28%;
+    right: 28%;
+  }
+  .login-wrapper_name-password {
+    top: 2.7rem;
+    width: 70vw;
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    .login-wrapper_user-name,
+    .login-wrapper_password {
+      font-size: 0.16rem;
+      input {
+        width: 80%;
+        border: 2px solid #918cbb;
+        line-height: 2;
+        background: transparent;
+        color: #fff;
+        outline: none;
+        border-radius: 0.2rem;
+        padding-left: 0.45rem;
+      }
+    }
+    .login-wrapper_user-name {
+      margin-bottom: 0.15rem;
+      img {
+        position: absolute;
+        top: 0.11rem;
+        left: 0.13rem;
+        width: 6%;
+      }
+    }
+    .login-wrapper_password {
+      position: relative;
+      .lock {
+        position: absolute;
+        top: 28%;
+        left: 0.13rem;
+        width: 6%;
+      }
+      .eye-icon {
+        position: absolute;
+        top: 28%;
+        right: 0.13rem;
+        width: 8%;
+      }
+    }
+    .login-wrapper_btn {
+      margin-top: 0.3rem;
+      font-size: 0.16rem;
+      border-radius: 0.2rem;
+      font-weight: bold;
+      line-height: 2.5;
+      color: #fff;
+      background: linear-gradient(to right, #0068c9, #01cec9, #01fbc9);
+    }
+  }
+  ::-moz-placeholder {
+    color: #fff;
+  }
+  ::-webkit-input-placeholder {
+    color: #fff;
+  }
+  :-ms-input-placeholder {
+    color: #fff;
+  }
+}

@@ -1,0 +1,58 @@
+.prize-list_content-item {
+  background: #fff;
+  padding: 0.2rem;
+  margin-bottom: 0.1rem;
+  .prize-list_content-item-info {
+    display: flex;
+    flex-direction: row;
+    padding: 0.1rem;
+    position: relative;
+    border-bottom: 1px dashed #807e7e;
+    .prize-list_content-item-logo {
+      width: 30%;
+      margin-right: 0.1rem;
+      img {
+        width: 100%;
+      }
+    }
+    .prize-list_content-item-detail {
+      width: 70%;
+      .prize-list_content-item-detail-name {
+        color: #007ccd;
+        margin-bottom: 0.1rem;
+        font-size: 0.16rem;
+      }
+      .prize-list_content-item-detail-description {
+        color: #666;
+        font-size: 0.1rem;
+      }
+    }
+    .left-circle {
+      position: absolute;
+      width: 0.2rem;
+      height: 0.2rem;
+      border-radius: 50%;
+      background: #f5f5f9;
+      left: -0.3rem;
+      bottom: -0.1rem;
+    }
+    .right-circle {
+      position: absolute;
+      width: 0.2rem;
+      height: 0.2rem;
+      border-radius: 50%;
+      background: #f5f5f9;
+      right: -0.3rem;
+      bottom: -0.1rem;
+    }
+  }
+  .prize-list_content-item-date {
+    margin-top: 0.1rem;
+    color: #666;
+    font-size: 0.1rem;
+    .prize-list_content-item-effect-date {
+      margin-bottom: 0.05rem;
+    }
+   
+  }
+}

@@ -1,0 +1,23 @@
+.menu {
+  background: #fff;
+  color: #000;
+  font-size: 0.12rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0.2rem 0.1rem 0 0.1rem;
+  .menu_item {
+    width: 25%;
+    margin-bottom: 0.15rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    img {
+      width: 30%;
+    }
+    .menu_item-name {
+      margin-top: 0.1rem;
+    }
+  }
+}

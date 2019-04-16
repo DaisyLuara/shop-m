@@ -1,0 +1,56 @@
+.device-list_content-item {
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  padding: 0.15rem 0.2rem;
+  margin-bottom: 0.1rem;
+  position: relative;
+  .device-list_content-item-logo {
+    width: 30%;
+    img {
+      width: 80%;
+    }
+    .device-list_content-item-status {
+      width: 80%;
+      text-align: center;
+      color: #fff;
+      font-size: 0.1rem;
+      padding: 0.03rem 0;
+      font-weight: 600;
+      margin-top: 0.05rem;
+    }
+    .open {
+      background: #00d0ac;
+    }
+    .close {
+      background: #ff8ca4;
+    }
+  }
+  .device-list_content-item-info {
+    width: 70%;
+    .device-list_address {
+      color: #3e8fc9;
+      font-size: 0.16rem;
+      font-weight: 600;
+      margin-bottom: 0.05rem;
+    }
+    .device-list_id {
+      color: #3e8fc9;
+      font-size: 0.14rem;
+      font-weight: 400;
+    }
+    .device-list_project-date {
+      position: absolute;
+      bottom: 0.15rem;
+      .device-list_name {
+        font-size: 0.14rem;
+        color: #444;
+        margin-bottom: 0.05rem;
+      }
+      .device-list_date {
+        font-size: 0.1rem;
+        color: #999;
+      }
+    }
+  }
+}

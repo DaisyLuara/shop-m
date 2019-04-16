@@ -1,0 +1,43 @@
+.device-detail {
+  margin-top: 0.4rem;
+  .device-detail_content {
+    background: #fff;
+    margin: -0.3rem 0.2rem 0;
+    padding: 0rem 0.25rem;
+    .device-detail_content-item {
+      display: flex;
+      flex-direction: row;
+      border-bottom: 1px solid #ececec;
+      padding: 0.15rem;
+      align-items: center;
+      &:last-child{
+        border-bottom:none;
+      }
+      .device-detail-content-item-title {
+        color: #666;
+        font-size: 0.14rem;
+        width: 30%;
+      }
+      .device-detail-content-item-info {
+        color: #444;
+        width: 70%;
+        font-size: 0.14rem;
+        .device-list_content-item-status {
+          width: 40%;
+          text-align: center;
+          color: #fff;
+          font-size: 0.1rem;
+          padding: 0.03rem 0;
+          font-weight: 600;
+          margin-top: 0.05rem;
+        }
+        .open {
+          background: #00d0ac;
+        }
+        .close {
+          background: #ff8ca4;
+        }
+      }
+    }
+  }
+}

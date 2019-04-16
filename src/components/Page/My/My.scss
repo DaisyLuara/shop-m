@@ -1,0 +1,15 @@
+.my-wrap {
+  margin-bottom: 0.2rem;
+
+  .my-wrap_avatar {
+    height: 0.6rem;
+    img {
+      width: 20%;
+      position: absolute;
+      top: 0.8rem;
+      left: 40%;
+      right: 40%;
+      border-radius: 0.1rem;
+    }
+  }
+}

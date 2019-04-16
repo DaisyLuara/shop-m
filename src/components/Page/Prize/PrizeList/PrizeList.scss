@@ -1,0 +1,62 @@
+.prize-list {
+  .prize-list_header {
+    margin-top: 0.4rem;
+    padding: 0.2rem 0 0.1rem;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .prize-list_tab-btn {
+      display: flex;
+      flex-direction: row;
+      width: 60%;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.1rem;
+      .prize-list_btn-all,
+      .prize-list_btn-use,
+      .prize-list_btn-stop {
+        border-top: 1px solid #00d1cf;
+        border-bottom: 1px solid #00d1cf;
+        width: calc(100% / 3);
+        text-align: center;
+        color: #00d1cf;
+        font-size: 0.12rem;
+        padding: 0.08rem 0.2rem;
+        border-right: 1px solid #00d1cf;
+      }
+      .prize-list_btn-all {
+        border-left: 1px solid #00d1cf;
+        border-top-left-radius: 0.1rem;
+        border-bottom-left-radius: 0.1rem;
+      }
+      .prize-list_btn-stop {
+        border-top-right-radius: 0.1rem;
+        border-bottom-right-radius: 0.1rem;
+      }
+      .is-active-all {
+        background: linear-gradient(to right, #007ccd, #00d1cf);
+        color: #fff;
+      }
+      .is-active-use {
+        background: linear-gradient(to right, #00d1cf, #00f5d1);
+        color: #fff;
+      }
+      .is-active-stop {
+        background: linear-gradient(to right, #00d1cf, #00d1cf);
+        color: #fff;
+      }
+    }
+  }
+
+  .prize-list_content {
+    padding: 0.15rem;
+    height: 4.5rem;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    .loader {
+      text-align: center;
+      color: #999;
+    }
+  }
+}

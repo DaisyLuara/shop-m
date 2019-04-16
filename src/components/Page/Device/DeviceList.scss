@@ -1,0 +1,33 @@
+.device-list {
+  .device-list_content-header {
+    background: #fff;
+    margin-top: 0.4rem;
+    padding: 0.2rem 0 0.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .device-list_content-header-info {
+      border: 1px solid #00d1cf;
+      width: 50%;
+      padding: 8px 0;
+      border-radius: 8px;
+      color: #00d1cf;
+      font-size: 0.12rem;
+      text-align: center;
+      .device-list_num {
+        font-size: 0.14rem;
+        font-weight: 700;
+      }
+    }
+  }
+  .device-list_content {
+    margin: 0.15rem;
+    height: 4.5rem;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    .loader {
+      text-align: center;
+      color: #999;
+    }
+  }
+}
