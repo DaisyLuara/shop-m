@@ -7,7 +7,7 @@ const testEnv = {
 const prodEnv = {
   SERVER_URL: 'http://mapi.xingstation.com'
 }
-
+console.log(process.env.NODE_ENV)
 const baseENV =
   process.env.NODE_ENV === 'production'
     ? prodEnv
