@@ -6,14 +6,18 @@ const DeviceList = lazy(() =>
 const DeviceDetail = lazy(() =>
   import('../../../components/Page/Device/DeviceDetail/DeviceDetail')
 )
+const Error404Page = lazy(() =>
+  import('../../../components/Page/Home/PageNotFound/PageNotFound')
+)
 class Device extends Component<RouteComponentProps> {
   render() {
     const { location } = this.props
     return (
       <Suspense fallback={null}>
         <Switch>
+          <Route excat path={'/call/device/list'} component={DeviceList} />
           <Route path={'/call/device/detail/:id'} component={DeviceDetail} />
-          <Route excat path={'/call/device'} component={DeviceList} />
+          <Route component={Error404Page} />
         </Switch>
       </Suspense>
     )

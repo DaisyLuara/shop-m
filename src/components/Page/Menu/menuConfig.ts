@@ -4,7 +4,7 @@ export const menuConfig = [
     id: 1,
     icon: CDN.IMG_URL + 'shopM/img/device_icon.png',
     name: '设备管理',
-    url: '/call/device'
+    url: '/call/device/list'
   },
   {
     id: 2,

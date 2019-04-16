@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, Component } from 'react'
-import { Route, RouteComponentProps } from 'react-router-dom'
+import { Route, RouteComponentProps, Switch } from 'react-router-dom'
 const PageHome = lazy(() => import('../../components/Page/Home/Home'))
 const My = lazy(() => import('../../components/Page/My/My'))
 const Device = lazy(() => import('./Device/Device'))
@@ -14,6 +14,10 @@ const Platform = lazy(() =>
 const PrizeList = lazy(() =>
   import('../../components/Page/Prize/PrizeList/PrizeList')
 )
+const Error404Page = lazy(() =>
+  import('../../components/Page/Home/PageNotFound/PageNotFound')
+)
+
 import { CSSTransition } from 'react-transition-group'
 
 class Home extends Component<RouteComponentProps> {
@@ -21,14 +25,17 @@ class Home extends Component<RouteComponentProps> {
     const { location } = this.props
     return (
       <Suspense fallback={null}>
-        <Route path={'/call/my'} component={My} />
-        <Route path={'/call/help'} component={Help} />
-        <Route path={'/call/verify'} component={Verify} />
-        <Route path={'/call/device'} component={Device} />
-        <Route path={'/call/platform'} component={Platform} />
-        <Route path={'/call/prize'} component={PrizeList} />
-        <Route path={'/call/password'} component={ModifyPassword} />
-        <Route excat path={'/call/home'} component={PageHome} />
+        <Switch>
+          <Route path={'/call/my'} component={My} />
+          <Route path={'/call/help'} component={Help} />
+          <Route path={'/call/verify'} component={Verify} />
+          <Route path={'/call/device'} component={Device} />
+          <Route path={'/call/platform'} component={Platform} />
+          <Route path={'/call/prize'} component={PrizeList} />
+          <Route path={'/call/password'} component={ModifyPassword} />
+          <Route excat path={'/call/home'} component={PageHome} />
+          <Route component={Error404Page} />
+        </Switch>
       </Suspense>
     )
   }
