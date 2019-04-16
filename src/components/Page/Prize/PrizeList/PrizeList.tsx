@@ -96,7 +96,7 @@ class PrizeList extends Component<any & State> {
   loadMore() {
     setTimeout(() => {
       this.prizeList()
-    }, 2000)
+    }, 200)
   }
 
   TabSetState = (

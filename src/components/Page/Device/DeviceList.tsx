@@ -92,7 +92,7 @@ class DeviceList extends Component<any & State> {
   loadMore() {
     setTimeout(() => {
       this.deviceList()
-    }, 2000)
+    }, 200)
   }
   render() {
     const { history } = this.props

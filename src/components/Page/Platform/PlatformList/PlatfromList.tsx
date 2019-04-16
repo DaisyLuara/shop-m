@@ -96,7 +96,7 @@ class PlatfromList extends Component<any & State> {
   loadMore() {
     setTimeout(() => {
       this.platfromList()
-    }, 2000)
+    }, 200)
   }
   render() {
     const { history } = this.props

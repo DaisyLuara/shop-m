@@ -136,7 +136,7 @@ class VerifyRecord extends Component<any & State> {
   loadMore() {
     setTimeout(() => {
       this.verifyList()
-    }, 2000)
+    }, 200)
   }
 
   onOk = (value: any) => {
