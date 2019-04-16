@@ -3,7 +3,6 @@ import './MenuBar.scss'
 import { MenuBarConfig } from './MenuBarConfig'
 class MenuBar extends Component<any> {
   menuLinkHandle = (url: string, type: string) => {
-    alert(url)
     type === 'release' ? '' : this.props.history.push(url)
   }
   MenuBarHandle = () => {

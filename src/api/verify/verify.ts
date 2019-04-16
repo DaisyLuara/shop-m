@@ -12,6 +12,8 @@ interface responseArgs {
 interface responseListArgs {
   data: {}
   meta: {
+    couponUsedNum: number
+    couponUnusedNum: number
     pagination: {
       count: number
       current_page: number
@@ -25,8 +27,8 @@ interface responseListArgs {
 
 interface requestListArgs {
   status?: number | null
-  start_date?: string | null
-  end_date?: string | null
+  create_start_date?: string | null
+  create_end_date?: string | null
   include: string
   coupon_batch_name?: string | null | undefined
 }

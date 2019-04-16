@@ -5,6 +5,7 @@ import { Picker, Icon, Calendar } from 'antd-mobile'
 import { verifyCouponList } from '../../../../api/verify/verify'
 import InfiniteScroll from 'react-infinite-scroller'
 import moment from 'moment'
+import VerifyRecordItem from './VerifyRecordItem/VerifyRecordItem'
 
 interface State {
   currentPage: number
@@ -15,8 +16,10 @@ interface State {
   isHasMore: boolean
   isLoading: boolean
   status: null | number
-  start_date: string | null
-  end_date: string | null
+  create_start_date: string | null
+  create_end_date: string | null
+  couponUsedNum: number
+  couponUnusedNum: number
 }
 class VerifyRecord extends Component<any & State> {
   state = {
@@ -29,8 +32,10 @@ class VerifyRecord extends Component<any & State> {
     isLoading: false,
     visible: false,
     status: null,
-    start_date: null,
-    end_date: null
+    create_start_date: null,
+    create_end_date: null,
+    couponUsedNum: 0,
+    couponUnusedNum: 0
   }
   _isMounted = false
 
@@ -40,19 +45,19 @@ class VerifyRecord extends Component<any & State> {
       currentPage,
       isLoading,
       status,
-      start_date,
-      end_date
+      create_start_date,
+      create_end_date
     } = this.state
     if (isLoading || isHasMore) {
       return
     }
     let args = {
       page: currentPage,
-      include: 'customer,couponBatch,point',
+      include: 'customer,couponBatch.company.logoMedia,point',
       coupon_batch_name: this.state.coupon_batch_name,
       status: status,
-      start_date: start_date,
-      end_date: end_date
+      create_start_date: create_start_date,
+      create_end_date: create_end_date
     }
     if (this._isMounted) {
       this.setState({
@@ -63,11 +68,15 @@ class VerifyRecord extends Component<any & State> {
       const r = await verifyCouponList(args)
       let res: any = r.data
       let pagination: any = r.meta.pagination
+      let couponUsedNum = r.meta.couponUsedNum
+      let couponUnusedNum = r.meta.couponUnusedNum
       if (this._isMounted) {
         this.setState({
           isLoading: false,
           list: this.state.list.concat(res),
-          total: pagination.total
+          total: pagination.total,
+          couponUsedNum: couponUsedNum,
+          couponUnusedNum: couponUnusedNum
         })
       }
       if (pagination.current_page >= pagination.total_pages) {
@@ -113,8 +122,8 @@ class VerifyRecord extends Component<any & State> {
   }
   onCancel = () => {
     this.setState({
-      start_date: null,
-      end_date: null,
+      create_start_date: null,
+      create_end_date: null,
       list: [],
       currentPage: 1,
       isHasMore: false,
@@ -152,11 +161,11 @@ class VerifyRecord extends Component<any & State> {
   }
 
   onConfirm = (startTime: any, endTime: any) => {
-    let start_date = moment(startTime).format('YYYY-MM-DD')
-    let end_date = moment(endTime).format('YYYY-MM-DD')
+    let create_start_date = moment(startTime).format('YYYY-MM-DD')
+    let create_end_date = moment(endTime).format('YYYY-MM-DD')
     this.setState({
-      start_date: start_date,
-      end_date: end_date,
+      create_start_date: create_start_date,
+      create_end_date: create_end_date,
       list: [],
       currentPage: 1,
       isHasMore: false,
@@ -173,62 +182,38 @@ class VerifyRecord extends Component<any & State> {
       list,
       total,
       status,
-      start_date,
-      end_date
+      create_start_date,
+      create_end_date,
+      couponUsedNum,
+      couponUnusedNum
     } = this.state
     const { history } = this.props
 
     const verifyItem = list.map((item: any, index) => {
+      const {
+        name,
+        code,
+        couponBatch,
+        point,
+        end_date,
+        start_date,
+        use_date,
+        customer,
+        status
+      } = item
       return (
-        <div className="verify-record_content-item" key={index}>
-          <div className="verify-record_content-coupon-info">
-            <div className="verify-record_coupon-title-logo">
-              <div className="verify-record_title-code">
-                <div className="verify-record_title">{item.name}</div>
-                <div className="verify-record_code">{item.code}</div>
-              </div>
-              <div className="verify-record_content-item-logo">
-                <img src="http://qiniucdn.xingstation.com/images_1553071832_sUyZznEMUU.png" />
-              </div>
-            </div>
-
-            <div className="verify-record_point-date">
-              <div className="verify-record_point-date-item">
-                点位名:{item.point.name}
-              </div>
-              <div className="verify-record_point-date-item">
-                有效期:{item.start_date} - {item.end_date}
-              </div>
-            </div>
-          </div>
-          <div className="verify-record_content-coupon-people">
-            <div className="verify-record_coupon-people">
-              <div className="verify-record_coupon-people-item">
-                核销时间: {item.use_date}
-              </div>
-              <div className="verify-record_coupon-people-item">
-                核销人员: {item.customer ? item.customer.name : ''}
-              </div>
-            </div>
-            <div className="verify-record_coupon-people-status">
-              <span
-                className={
-                  item.status === 1
-                    ? 'verify-record_status coupon-use'
-                    : 'verify-record_status coupon-no-use'
-                }
-              >
-                {item.status === 1
-                  ? '已使用'
-                  : item.status === 0
-                  ? '未领取'
-                  : item.status === 2
-                  ? '停用'
-                  : '未使用'}
-              </span>
-            </div>
-          </div>
-        </div>
+        <VerifyRecordItem
+          end_date={end_date}
+          start_date={start_date}
+          use_date={use_date}
+          customer={customer}
+          status={status}
+          key={index}
+          name={name}
+          code={code}
+          couponBatch={couponBatch}
+          point={point}
+        />
       )
     })
     const district = [
@@ -281,7 +266,7 @@ class VerifyRecord extends Component<any & State> {
               </div>
             </Picker>
             <div className="verify-record_date" onClick={this.isShowCalendar}>
-              日期
+              发放日期
               <Icon type="down" size="sm" />
             </div>
             <Calendar
@@ -290,8 +275,8 @@ class VerifyRecord extends Component<any & State> {
               onCancel={this.onCancel}
               onConfirm={this.onConfirm}
               defaultValue={
-                start_date && end_date
-                  ? [new Date(start_date), new Date(end_date)]
+                create_start_date && create_end_date
+                  ? [new Date(create_start_date), new Date(create_end_date)]
                   : [new Date()]
               }
             />
@@ -303,11 +288,11 @@ class VerifyRecord extends Component<any & State> {
             </div>
             <div className="verify-record_status-count-item">
               <div className="verify-record_title">已使用</div>
-              <div className="verify-record_count">290</div>
+              <div className="verify-record_count">{couponUsedNum}</div>
             </div>
             <div className="verify-record_status-count-item">
               <div className="verify-record_title">未使用</div>
-              <div className="verify-record_count">610</div>
+              <div className="verify-record_count">{couponUnusedNum}</div>
             </div>
           </div>
         </div>

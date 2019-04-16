@@ -55,7 +55,6 @@ class App extends Component<AppProps> {
     // 判断是否是登录状态
     const { isLogin, tokenInfo, loginStatus } = this.props
     let isLoginStatus = checkIsLogin(tokenInfo, loginStatus)
-    alert(isLoginStatus)
     isLogin(isLoginStatus)
     // 设置页面Rem
     this.setRem()
@@ -71,10 +70,8 @@ class App extends Component<AppProps> {
   render() {
     const { loginStatus, location } = this.props
     if (!loginStatus) {
-      alert(loginStatus)
       let pathname = this.props.location.pathname
       if (pathname !== '/login') {
-        alert(pathname)
         return (
           <div className="App">
             <Switch>
