@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import Login from '../components/Page/Login/Login'
 import { loggedIn } from '../api/storeData'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import Error404Page from '../components/Page/Home/PageNotFound/PageNotFound'
 // 用 lazy 来懒加载组件
 const Home = lazy(() => import('./Home/Home'))
 
@@ -22,9 +23,9 @@ const Routes = (location: any) => {
           }
         />
         } />
-        <Route path="/call" component={Home} />
-        {/* <Route path="/404" component={Error404Page} />
-        <Route component={Error404Page} /> */}
+        <Route path="/call/home" component={Home} />
+        <Route path="/404" component={Error404Page} />
+        <Route component={Error404Page} />
       </Switch>
       {/* </CSSTransition>
       </TransitionGroup> */}

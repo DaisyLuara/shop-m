@@ -7,9 +7,8 @@ const testEnv = {
 const prodEnv = {
   SERVER_URL: 'http://mapi.xingstation.com'
 }
-console.log(process.env.NODE_ENV)
 const baseENV =
-  process.env.NODE_ENV === 'production'
+  process.env.NODE_ENV === 'production' && !process.env.REACT_APP_TEST_ENV
     ? prodEnv
     : process.env.NODE_ENV === 'development'
     ? devEnv
