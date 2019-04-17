@@ -9,8 +9,8 @@
     .device-list_content-header-info {
       border: 1px solid #00d1cf;
       width: 50%;
-      padding: 8px 0;
-      border-radius: 8px;
+      padding: 0.08rem 0;
+      border-radius: 0.08rem;
       color: #00d1cf;
       font-size: 0.12rem;
       text-align: center;
@@ -22,7 +22,7 @@
   }
   .device-list_content {
     margin: 0.15rem;
-    height: 4.5rem;
+    height: calc(100vh - 1.33rem);
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     .loader {

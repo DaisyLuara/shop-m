@@ -35,7 +35,8 @@
   .platform-list-content {
     padding: 0.15rem;
     overflow-y: scroll;
-    height: 4.5rem;
+    // height: 4.5rem;
+    height: calc(100vh - 1.33rem);
     -webkit-overflow-scrolling: touch;
     .loader {
       text-align: center;

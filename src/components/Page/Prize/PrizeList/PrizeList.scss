@@ -51,7 +51,8 @@
 
   .prize-list_content {
     padding: 0.15rem;
-    height: 4.5rem;
+    // height: 4.5rem;
+    height: calc(100vh - 1.33rem);
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     .loader {
