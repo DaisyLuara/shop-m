@@ -10,7 +10,6 @@ interface State {
   list: Array<any>
   nick_name: string | undefined | null
   total: number
-  pageSize: number
   isHasMore: boolean
   isLoading: boolean
 }
@@ -20,7 +19,6 @@ class PlatfromList extends Component<any & State> {
     currentPage: 1,
     list: [],
     total: 0,
-    pageSize: 5,
     isHasMore: false,
     isLoading: false
   }

@@ -102,7 +102,7 @@ class ModifyPassword extends Component<any> {
             <InputItem
               {...getFieldProps('confirm_password', {
                 rules: [
-                  { required: true, message: '确认新不能为空' },
+                  { required: true, message: '确认新密码不能为空' },
                   {
                     validator: this.compareToFirstPassword
                   }

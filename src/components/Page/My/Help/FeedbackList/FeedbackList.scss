@@ -1,0 +1,61 @@
+.feedback-list {
+  .feedback-list-tabs {
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    padding: 0.1rem 0;
+    .feedback-list-back {
+      width: 10%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    .feedback-list-tabs-btn {
+      width: 90%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .feedback-list-tabs-btn-promptly,
+      .feedback-list-tabs-btn-my {
+        border-top: 1px solid #00d1cf;
+        border-bottom: 1px solid #00d1cf;
+        color: #00d1cf;
+        font-size: 0.12rem;
+        padding: 0.08rem 0.1rem;
+      }
+      .feedback-list-tabs-btn-promptly {
+        margin-left: -0.3rem;
+        border-left: 1px solid #00d1cf;
+        border-top-left-radius: 0.1rem;
+        border-bottom-left-radius: 0.1rem;
+      }
+      .feedback-list-tabs-btn-my {
+        border-right: 1px solid #00d1cf;
+        border-top-right-radius: 0.1rem;
+        border-bottom-right-radius: 0.1rem;
+      }
+      .is-active-promptly {
+        background: linear-gradient(to right, #007ccd, #00d1cf);
+        color: #fff;
+      }
+      .is-active-my {
+        background: linear-gradient(to right, #00d1cf, #00d1cf);
+        color: #fff;
+      }
+    }
+  }
+  
+  .feedback-list_my-wrap {
+    margin: 0.15rem;
+    height: calc(100vh - 0.7rem);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    .loader {
+      text-align: center;
+      color: #999;
+    }
+  }
+}
+

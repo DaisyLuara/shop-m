@@ -141,6 +141,9 @@ class VerifyRecord extends Component<any & State> {
 
   onOk = (value: any) => {
     let [status] = [...value]
+    if (status === 4) {
+      status = null
+    }
     this.setState({
       status: status,
       list: [],
@@ -217,6 +220,10 @@ class VerifyRecord extends Component<any & State> {
       )
     })
     const district = [
+      {
+        value: 4,
+        label: '全部'
+      },
       {
         value: 0,
         label: '未领取'

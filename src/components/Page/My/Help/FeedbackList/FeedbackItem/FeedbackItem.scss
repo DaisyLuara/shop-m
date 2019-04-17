@@ -1,0 +1,54 @@
+.feedback-list_my-item {
+  background: #fff;
+  padding: 0.15rem;
+  margin-bottom: 0.1rem;
+  .feedback-list_my-ask {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.1rem;
+    .feedback-list_my-ask-icon {
+      width: 10vw;
+      img {
+        width: 80%;
+      }
+    }
+    .feedback-list_my-ask-content {
+      margin-left: 0.1rem;
+      .feedback-list_my-ask-content-title {
+        color: #222;
+        font-size: 0.16rem;
+        margin-bottom: 0.1rem;
+      }
+      .feedback-list_my-ask-content-date {
+        color: #ccc;
+        font-size: 0.12rem;
+      }
+    }
+  }
+
+  .feedback-list-answer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.1rem;
+    border-top: 1px solid #e4e1e1;
+    padding-top: 0.1rem;
+    .feedback-list-answer-icon {
+      width: 10vw;
+      img {
+        width: 80%;
+      }
+    }
+    .feedback-list-answer-content {
+      margin-left: 0.1rem;
+      .feedback-list-answer-content-title {
+        color: #222;
+        font-size: 0.16rem;
+        margin-bottom: 0.1rem;
+      }
+      .feedback-list-answer-content-date {
+        color: #ccc;
+        font-size: 0.12rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.feedback-list-add-wrap {
+  margin: 0.15rem;
+  background: #fff;
+  padding: 0.1rem;
+  .feedback-list-add-wrap-title {
+    border-bottom: 1px solid #ccc;
+  }
+  .feedback-list_img-title {
+    font-size: 0.14rem;
+    color: #444;
+    margin: 0.1rem 0;
+    margin-left: 0.1rem;
+  }
+  .feedback-list_btn {
+    background: linear-gradient(to right, #007ccd, #00d1cf, #00f5d1);
+    border-radius: 0.2rem;
+    padding: 0.1rem 0;
+    text-align: center;
+    color: #fff;
+    font-size: 0.16rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.am-textarea-control textarea {
+  font-size: 0.14rem;
+}
+html:not([data-scale]) .am-list-body::before {
+  background-color: #fff;
+}
+
+html:not([data-scale]) .am-list-body::after {
+  background-color: #fff;
+}

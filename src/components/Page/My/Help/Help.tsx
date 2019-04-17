@@ -57,7 +57,7 @@ class Help extends Component<any> {
         <div className="product_introduce">
           <Accordion defaultActiveKey="1">{PanelItem()}</Accordion>
         </div>
-        <FeedbackMenu />
+        <FeedbackMenu history={history} />
       </div>
     )
   }

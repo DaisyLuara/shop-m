@@ -188,7 +188,7 @@ class PageHome extends Component<any> {
   render() {
     const { history } = this.props
     const userInfo = getPerAndInfo()
-    const name = userInfo.name
+    const name = userInfo.company.name
 
     return (
       <div style={{ overflowX: 'hidden' }}>

@@ -45,7 +45,7 @@ class VerifyCode extends Component<any> {
             }
           ])
         } else {
-          Toast.info('请重新扫码，或是手动输入!')
+          Toast.info('请重新输入正确的核销码!')
         }
       } else {
         Toast.fail('优惠券码不能为空!')

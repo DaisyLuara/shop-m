@@ -28,10 +28,14 @@ class FeedbackMenu extends Component<any> {
   componentWillUnmount() {
     this._isMounted = false
   }
+  goFeedback = () => {
+    const { history } = this.props
+    history.push('/call/feedback')
+  }
   render() {
     return (
       <div className="feedback-menu">
-        <div className="feedback-menu_item">
+        <div className="feedback-menu_item" onClick={this.goFeedback}>
           <img src={CDN.IMG_URL + 'shopM/img/edit_icon.png'} />
           在线反馈
         </div>

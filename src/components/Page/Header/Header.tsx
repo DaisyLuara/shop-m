@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Header.scss'
-import { Icon, Drawer, SearchBar } from 'antd-mobile'
+import { Icon, SearchBar } from 'antd-mobile'
 class Header extends Component<any> {
   state = {
     open: false
@@ -44,7 +44,6 @@ class Header extends Component<any> {
   }
 
   onSubmit = (value: any) => {
-    console.log(value)
     this.props.searchHandle(value)
   }
   onCancel = () => {

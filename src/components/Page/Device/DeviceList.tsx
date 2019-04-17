@@ -103,7 +103,7 @@ class DeviceList extends Component<any & State> {
         <DeviceItem
           history={history}
           key={index}
-          icon={point.icon}
+          icon={project.icon}
           index={index}
           point_name={point.name}
           id={id}
