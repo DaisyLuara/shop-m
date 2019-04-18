@@ -6,19 +6,11 @@ import { createForm } from 'rc-form'
 import { verifyCoupon } from '../../../../api/verify/verify'
 import './VerifyCode.scss'
 const alert = Modal.alert
-let moneyKeyboardWrapProps: any
-const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(
-  window.navigator.userAgent
-)
-if (isIPhone) {
-  moneyKeyboardWrapProps = {
-    onTouchStart: (e: any) => {
-      e.preventDefault()
-    }
-  }
-}
 
 class VerifyCode extends Component<any> {
+  state = {
+    type: 'money'
+  }
   submit = () => {
     this.props.form.validateFields({ force: true }, (error: any) => {
       if (!error) {
@@ -52,6 +44,7 @@ class VerifyCode extends Component<any> {
       }
     })
   }
+
   async verifyCouponCode(args: any) {
     try {
       await verifyCoupon(args)
@@ -86,26 +79,11 @@ class VerifyCode extends Component<any> {
             renderHeader={(): any => ''}
           >
             <InputItem
-              {...getFieldProps('order_total', {
-                normalize: (v: any, prev: any) => {
-                  if (v && !/^(([1-9]\d*)|0)(\.\d{0,2}?)?$/.test(v)) {
-                    if (v === '.') {
-                      return '0.'
-                    }
-                    return prev
-                  }
-                  return v
-                }
-              })}
+              {...getFieldProps('order_total')}
               maxLength={5}
-              moneyKeyboardAlign="left"
-              type="money"
+              type="digit"
               placeholder="请输入订单金额"
-              onVirtualKeyboardConfirm={(v: any) =>
-                console.log('onVirtualKeyboardConfirm:', v)
-              }
               clear
-              moneyKeyboardWrapProps={moneyKeyboardWrapProps}
             />
           </List>
           <div className="verify-code_btn" onClick={this.submit}>
