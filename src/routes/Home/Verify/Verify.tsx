@@ -9,7 +9,6 @@ const VerifyRecord = lazy(() =>
 const Error404Page = lazy(() =>
   import('../../../components/Page/Home/PageNotFound/PageNotFound')
 )
-import { SwipeAction } from 'antd-mobile'
 
 class Verify extends Component<RouteComponentProps> {
   render() {

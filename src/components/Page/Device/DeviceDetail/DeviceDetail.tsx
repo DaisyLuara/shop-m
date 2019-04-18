@@ -4,15 +4,19 @@ import HeaderContent from '../../Header/HeaderContent'
 import './DeviceDetail.scss'
 import DeviceDetailItem from './DeviceDetailItem/DeviceDetailItem'
 import { getDeviceDetail } from '../../../../api/device/device'
-import { listenerCount } from 'cluster'
 interface State {
   list: Array<any>
+  point_name: string | null
 }
-class DeviceDetail extends Component<any & State> {
-  state = {
-    list: [],
-    point_name: ''
+class DeviceDetail extends Component<any, State> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      list: [],
+      point_name: null
+    }
   }
+
   _isMounted = false
   deviceDetail = async () => {
     const { match } = this.props

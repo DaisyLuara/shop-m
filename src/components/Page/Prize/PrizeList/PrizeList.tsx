@@ -13,20 +13,26 @@ interface State {
   isHasMore: boolean
   isLoading: boolean
   is_active: number | null
+  isActive: string
+  isActiveIndex: number
 }
-class PrizeList extends Component<any & State> {
-  state = {
-    currentPage: 1,
-    list: [],
-    name: null,
-    total: 0,
-    pageSize: 5,
-    isHasMore: false,
-    isLoading: false,
-    isActive: 'is-active-all',
-    isActiveIndex: 0,
-    is_active: null
+class PrizeList extends Component<any, State> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      currentPage: 1,
+      list: [],
+      name: null,
+      total: 0,
+      pageSize: 5,
+      isHasMore: false,
+      isLoading: false,
+      isActive: 'is-active-all',
+      isActiveIndex: 0,
+      is_active: null
+    }
   }
+
   _isMounted = false
 
   prizeList = async () => {

@@ -16,16 +16,20 @@ interface State {
   currentPage: number
 }
 
-class FeedbackList extends Component<any & State> {
-  state = {
-    isActive: 'is-active-promptly',
-    isActiveIndex: 0,
-    addVisiable: true,
-    currentPage: 1,
-    list: [],
-    isHasMore: false,
-    isLoading: false
+class FeedbackList extends Component<any, State> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      isActive: 'is-active-promptly',
+      isActiveIndex: 0,
+      addVisiable: true,
+      currentPage: 1,
+      list: [],
+      isHasMore: false,
+      isLoading: false
+    }
   }
+
   _isMounted = false
   back = () => {
     const { history } = this.props
@@ -67,8 +71,15 @@ class FeedbackList extends Component<any & State> {
       this.setState({
         isActive: 'is-active-my',
         isActiveIndex: 1,
-        addVisiable: false
+        addVisiable: false,
+        currentPage: 1,
+        list: [],
+        isHasMore: false,
+        isLoading: false
       })
+      setTimeout(() => {
+        this.myFeedbackList()
+      }, 100)
     }
   }
   myFeedbackList = async () => {
@@ -130,7 +141,7 @@ class FeedbackList extends Component<any & State> {
     const { history } = this.props
 
     const feedBackItem = list.map((item: any, index) => {
-      const { title, childrenFeedback, created_at } = item
+      const { title, childrenFeedback, created_at, id } = item
       let data = childrenFeedback.data
       let length = data.length
       return (
@@ -142,6 +153,7 @@ class FeedbackList extends Component<any & State> {
           length={length}
           data={data}
           history={history}
+          id={id}
         />
       )
     })

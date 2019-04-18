@@ -32,6 +32,15 @@ interface responseListArgs {
   }
 }
 
+interface requestDetailArgs {
+  include: string
+  id: number
+}
+
+interface responseDetailArgs {
+  data: {}
+}
+
 export const getMobile = (): Promise<responseArgs> => {
   return new Promise(function(resolve, reject) {
     axios
@@ -70,6 +79,27 @@ export const getMyFeedbackList = (
   return new Promise(function(resolve, reject) {
     axios
       .get(FEEDBACK_API, { params: params })
+      .then((res: any) => {
+        resolve(res.data)
+      })
+      .catch((err: any) => {
+        reject(err)
+      })
+  })
+}
+
+export const getFeedbackDetail = (
+  args: requestDetailArgs
+): Promise<responseDetailArgs> => {
+  let id = args.id
+  delete args.id
+  let params = {
+    ...args
+  }
+
+  return new Promise(function(resolve, reject) {
+    axios
+      .get(FEEDBACK_API + '/' + id, { params: params })
       .then((res: any) => {
         resolve(res.data)
       })

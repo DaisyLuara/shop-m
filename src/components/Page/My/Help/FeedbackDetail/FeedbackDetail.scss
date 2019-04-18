@@ -1,0 +1,43 @@
+.feedback-detail {
+  .feedback-detail_content {
+    margin: 0 0.15rem;
+    background: #fff;
+    margin-top: -0.3rem;
+    .feedback-detail_ask-content,
+    .feedback-detail_answer-content {
+      padding: 0.1rem;
+      .feedback-detail_ask-title,
+      .feedback-detail_answer-title {
+        color: #666;
+        font-size: 0.16rem;
+        text-align: left;
+        margin-bottom: 0.1rem;
+      }
+      .feedback-detail_ask-content-file,
+      .feedback-detail_answer-content-file {
+        color: #444;
+        font-size: 0.14rem;
+        word-wrap: break-word;
+        margin-bottom: 0.1rem;
+      }
+      .feedback-detail_ask-content-image,
+      .feedback-detail_answer-content-image {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .feedback-detail_content-image-item,
+        .feedback-detail_content-image-item {
+          margin-right: 0.1rem;
+          margin-bottom: 0.1rem;
+          width: 0.5rem;
+          position: relative;
+          height: 0.5rem;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}

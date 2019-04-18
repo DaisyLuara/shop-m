@@ -188,7 +188,10 @@ class PageHome extends Component<any> {
   render() {
     const { history } = this.props
     const userInfo = getPerAndInfo()
-    const name = userInfo.company.name
+    const name =
+      userInfo.company.name.length > 20
+        ? userInfo.company.name.substring(0, 20) + '...'
+        : userInfo.company.name.length
 
     return (
       <div style={{ overflowX: 'hidden' }}>

@@ -30,7 +30,7 @@ class FeedbackMenu extends Component<any> {
   }
   goFeedback = () => {
     const { history } = this.props
-    history.push('/call/feedback')
+    history.push('/call/feedback/list')
   }
   render() {
     return (

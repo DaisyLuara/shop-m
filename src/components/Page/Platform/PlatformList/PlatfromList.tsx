@@ -13,15 +13,19 @@ interface State {
   isHasMore: boolean
   isLoading: boolean
 }
-class PlatfromList extends Component<any & State> {
-  state = {
-    nick_name: '',
-    currentPage: 1,
-    list: [],
-    total: 0,
-    isHasMore: false,
-    isLoading: false
+class PlatfromList extends Component<any, State> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      nick_name: null,
+      currentPage: 1,
+      list: [],
+      total: 0,
+      isHasMore: false,
+      isLoading: false
+    }
   }
+
   _isMounted = false
 
   platfromList = async () => {

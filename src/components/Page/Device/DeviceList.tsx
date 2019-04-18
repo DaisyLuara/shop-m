@@ -14,16 +14,20 @@ interface State {
   isLoading: boolean
 }
 
-class DeviceList extends Component<any & State> {
-  state = {
-    currentPage: 1,
-    list: [],
-    point_name: null,
-    total: 0,
-    pageSize: 5,
-    isHasMore: false,
-    isLoading: false
+class DeviceList extends Component<any, State> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      currentPage: 1,
+      list: [],
+      point_name: null,
+      total: 0,
+      pageSize: 5,
+      isHasMore: false,
+      isLoading: false
+    }
   }
+
   _isMounted = false
   deviceList = async () => {
     const { isHasMore, currentPage, isLoading } = this.state

@@ -17,8 +17,8 @@ const PrizeList = lazy(() =>
 const Error404Page = lazy(() =>
   import('../../components/Page/Home/PageNotFound/PageNotFound')
 )
-const FeedbackList = lazy(() =>
-  import('../../components/Page/My/Help/FeedbackList/FeedbackList')
+const Feedback = lazy(() =>
+  import('./Feedback/Feedback')
 )
 
 import { CSSTransition } from 'react-transition-group'
@@ -31,7 +31,7 @@ class Home extends Component<RouteComponentProps> {
         <Switch>
           <Route path={'/call/my'} component={My} />
           <Route path={'/call/help'} component={Help} />
-          <Route path={'/call/feedback'} component={FeedbackList} />
+          <Route path={'/call/feedback'} component={Feedback} />
           <Route path={'/call/verify'} component={Verify} />
           <Route path={'/call/device'} component={Device} />
           <Route path={'/call/platform'} component={Platform} />

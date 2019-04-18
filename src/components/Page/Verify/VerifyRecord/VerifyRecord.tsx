@@ -39,7 +39,7 @@ class VerifyRecord extends Component<any & State> {
   }
   _isMounted = false
 
-  verifyList = async () => {
+  verifyList = async (type?: string, statusCoupon?: null | number) => {
     const {
       isHasMore,
       currentPage,
@@ -129,7 +129,9 @@ class VerifyRecord extends Component<any & State> {
       isHasMore: false,
       visible: false
     })
-    this.verifyList()
+    setTimeout(() => {
+      this.verifyList()
+    }, 100)
   }
 
   // 加载更多
@@ -150,7 +152,9 @@ class VerifyRecord extends Component<any & State> {
       currentPage: 1,
       isHasMore: false
     })
-    this.verifyList()
+    setTimeout(() => {
+      this.verifyList()
+    }, 100)
   }
 
   onDismiss = () => {
@@ -160,7 +164,9 @@ class VerifyRecord extends Component<any & State> {
       currentPage: 1,
       isHasMore: false
     })
-    this.verifyList()
+    setTimeout(() => {
+      this.verifyList()
+    }, 100)
   }
 
   onConfirm = (startTime: any, endTime: any) => {
@@ -174,7 +180,9 @@ class VerifyRecord extends Component<any & State> {
       isHasMore: false,
       visible: false
     })
-    this.verifyList()
+    setTimeout(() => {
+      this.verifyList()
+    }, 100)
   }
   render() {
     const {

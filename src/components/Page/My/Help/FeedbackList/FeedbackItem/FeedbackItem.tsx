@@ -2,10 +2,18 @@ import React, { Component } from 'react'
 import { CDN } from '../../../../../../constant/cdn'
 import './FeedbackItem.scss'
 class FeedbackItem extends Component<any> {
+  getDetail = () => {
+    const { history, id } = this.props
+    history.push('/call/feedback/detail/' + id)
+  }
   render() {
-    const { index, title, created_at, length, data, history } = this.props
+    const { index, title, created_at, length, data } = this.props
     return (
-      <div className="feedback-list_my-item" key={index}>
+      <div
+        className="feedback-list_my-item"
+        key={index}
+        onClick={this.getDetail}
+      >
         <div className="feedback-list_my-ask">
           <div className="feedback-list_my-ask-icon">
             <img src={CDN.IMG_URL + 'shopM/img/ask_icon.png'} />
