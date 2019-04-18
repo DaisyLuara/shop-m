@@ -25,12 +25,12 @@ class FeedbackSave extends Component<any> {
       let length = files.length
       let size = files[length - 1].file.size
       let file = files[length - 1].file
-      if (size / 1024 / 1024 < 2) {
+      if (size / 1024 / 1024 < 3) {
         this.setState({
           files
         })
       } else {
-        Toast.info('图片大小不能超过2MB!')
+        Toast.info('图片大小不能超过3MB!')
         files.splice(length - 1, 1)
         this.setState({
           files: files

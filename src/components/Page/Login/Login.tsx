@@ -15,7 +15,6 @@ interface formItem {
 class LoginContent extends Component<formItem & any> {
   constructor(props: formItem & any) {
     super(props)
-    console.log(props)
   }
   state = {
     hidden: true,
@@ -24,6 +23,30 @@ class LoginContent extends Component<formItem & any> {
   }
   bgHeight: any = window.innerHeight + 'px'
 
+  addFocusOutListener = () => {
+    let inputPassword = document.getElementsByName('password')[0]
+    inputPassword.addEventListener('focusout', () => {
+      setTimeout(function() {
+        window.scrollTo(0, 0)
+      }, 100)
+    })
+  }
+
+  removeFocusOutListener = () => {
+    let inputPassword = document.getElementsByName('password')[0]
+    inputPassword.removeEventListener('focusout', () => {
+      setTimeout(function() {
+        window.scrollTo(0, 0)
+      }, 100)
+    })
+  }
+
+  componentDidMount() {
+    this.addFocusOutListener()
+  }
+  componentWillUnmount() {
+    this.removeFocusOutListener()
+  }
   passwordHandle = () => {
     this.setState({
       hidden: !this.state.hidden
@@ -70,7 +93,6 @@ class LoginContent extends Component<formItem & any> {
       .then(res => {
         this.props.savePer(res.data)
         this.props.isLogin(true)
-        console.log(this.props)
         this.props.history.push('/call/home')
       })
       .catch(err => {
