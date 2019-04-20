@@ -114,12 +114,14 @@ class PrizeList extends Component<any, State> {
       isActive: isActive,
       isActiveIndex: isActiveIndex,
       is_active: is_active,
-      name: name,
+      name: this.state.name,
       list: [],
       currentPage: 1,
       isHasMore: false
     })
-    this.prizeList()
+    setTimeout(() => {
+      this.prizeList()
+    }, 100)
   }
 
   TabHandle = (type: string) => {

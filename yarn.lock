@@ -7875,6 +7875,10 @@ react-app-rewired@^2.1.1:
     dotenv "^6.2.0"
     semver "^5.6.0"
 
+react-circle@^1.1.1:
+  version "1.1.1"
+  resolved "http://registry.npm.taobao.org/react-circle/download/react-circle-1.1.1.tgz#f97ccf3e2a37a91ea50280ea8262420e0d1de60c"
+
 react-dev-utils@^8.0.0:
   version "8.0.0"
   resolved "http://registry.npm.taobao.org/react-dev-utils/download/react-dev-utils-8.0.0.tgz#7c5b227a45a32ea8ff7fbc318f336cf9e2c6e34c"

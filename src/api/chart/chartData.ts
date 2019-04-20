@@ -25,7 +25,7 @@ export const getPersonTimes = (args: paramsData): Promise<responseArgs> => {
     axios
       .post(DATA_API, params,REQ_HEADER)
       .then((res: any) => {
-        resolve(res)
+        resolve(res.data)
       })
       .catch((err: any) => {
         reject(err)

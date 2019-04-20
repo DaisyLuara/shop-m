@@ -17,16 +17,20 @@
   .header-wrap_left-icon {
     position: absolute;
     left: 0.06rem;
+    top: 26%;
+    bottom: 26%;
   }
   .header-wrap_search-icon {
     position: absolute;
     right: 0.15rem;
+    top: 26%;
+    bottom: 26%;
   }
 }
 
-.search-content{
+.search-content {
   position: absolute;
-  width:100%;
+  width: 100%;
   height: 0.4rem;
-  top:0;
+  top: 0;
 }

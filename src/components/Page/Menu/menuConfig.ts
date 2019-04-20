@@ -22,7 +22,7 @@ export const menuConfig = [
     id: 4,
     icon: CDN.IMG_URL + 'shopM/img/data_icon.png',
     name: '数据管理',
-    url: ''
+    url: '/call/data'
   }
   // {
   //   id: 5,

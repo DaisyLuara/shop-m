@@ -25,11 +25,11 @@ class PageHome extends Component<any> {
       // 获取次数
       let argsCount = {
         id: 1,
-        end_date: '2018-02-05',
-        start_date: '2018-02-03'
+        end_date: '2019-02-07',
+        start_date: '2019-02-05'
       }
       let peopleTimesCount = await getPersonTimes(argsCount)
-      let dataArr: any = peopleTimesCount.data
+      let dataArr: any = peopleTimesCount
       dataArr.map((r: any) => {
         if (r.number.index === 'looktimes') {
           if (this._isMounted) {
@@ -61,12 +61,12 @@ class PageHome extends Component<any> {
       // 获取图表
       let argsChart = {
         id: 2,
-        end_date: '2018-02-05',
-        start_date: '2018-02-03',
+        end_date: '2019-02-07',
+        start_date: '2019-02-05',
         index: 'looktimes,playtimes7,omo_scannum,verifytimes'
       }
       let peopelTimesChart = await getPersonTimes(argsChart)
-      let chartDataTimes: any = peopelTimesChart.data
+      let chartDataTimes: any = peopelTimesChart
       let data: any = []
       chartDataTimes.map((r: any) => {
         data.push({
@@ -137,7 +137,7 @@ class PageHome extends Component<any> {
       }
     }
     let ChartDataBlock = (
-      <Chart height={150} data={dv} forceFit padding={[10, 10, 30, 30]}>
+      <Chart height={150} data={dv} forceFit padding={[10, 10, 30, 35]}>
         <Axis name="day" label={label} />
         <Axis
           name="number"

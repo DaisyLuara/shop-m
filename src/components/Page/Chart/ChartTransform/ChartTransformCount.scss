@@ -1,0 +1,86 @@
+.chart-data_count-item {
+  display: flex;
+  flex-direction: row;
+  height: 0.6rem;
+  .chart-data_count-item-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 0.1rem;
+    width: 30%;
+    position: relative;
+    margin-bottom: 0.1rem;
+    .chart-data_count-item-title-replace {
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  .item-text_0 {
+    margin-left: 0.14rem;
+  }
+  .item-text_1 {
+    margin-left: 0.14rem;
+  }
+  .item-text_2 {
+    margin-left: 0.12rem;
+  }
+  .item-text_3 {
+    margin-left: 0.07rem;
+  }
+  .item-replace_0 {
+    border-bottom: 0.6rem solid #fff;
+    border-right: 0.12rem solid transparent;
+  }
+  .item-replace_1 {
+    border-bottom: 0.6rem solid #fff;
+    border-right: 0.12rem solid transparent;
+  }
+  .item-replace_2 {
+    border-bottom: 0.6rem solid #fff;
+    border-right: 0.12rem solid transparent;
+  }
+  .item-replace_3 {
+    border-bottom: 0.6rem solid #fff;
+    border-right: 0.12rem solid transparent;
+  }
+  .item_0 {
+    border-top-left-radius: 0.05rem;
+    background: linear-gradient(to bottom, #3e8fc9, #1ad4ff);
+  }
+  .item_1 {
+    background: linear-gradient(to bottom, #ff957c, #ffe97d);
+    width: 25%;
+    margin-left: 5%;
+  }
+  .item_2 {
+    background: linear-gradient(to bottom, #03b8cb, #bdff3f);
+    width: 19%;
+    margin-left: 11%;
+  }
+  .item_3 {
+    background: linear-gradient(to bottom, #007ccd, #00d1cf, #00f5d1);
+    width: 13%;
+    margin-left: 17%;
+  }
+  .chart-data_count-item-info {
+    background: #f2f2f9;
+    padding: 0.1rem;
+    width: 50%;
+    margin-bottom: 0.1rem;
+    .chart-data_count-item-info-title {
+      font-size: 0.1rem;
+      color: #444;
+      margin-bottom: 0.03rem;
+    }
+    .chart-data_count-item-info-count {
+      font-size: 0.16rem;
+      color: #444;
+      font-weight: 600;
+    }
+  }
+}

@@ -4,6 +4,7 @@ const PageHome = lazy(() => import('../../components/Page/Home/Home'))
 const My = lazy(() => import('../../components/Page/My/My'))
 const Device = lazy(() => import('./Device/Device'))
 const Verify = lazy(() => import('./Verify/Verify'))
+const Feedback = lazy(() => import('./Feedback/Feedback'))
 const Help = lazy(() => import('../../components/Page/My/Help/Help'))
 const ModifyPassword = lazy(() =>
   import('../../components/Page/My/ModifyPassword/ModifyPassword')
@@ -17,9 +18,7 @@ const PrizeList = lazy(() =>
 const Error404Page = lazy(() =>
   import('../../components/Page/Home/PageNotFound/PageNotFound')
 )
-const Feedback = lazy(() =>
-  import('./Feedback/Feedback')
-)
+const ChartData = lazy(() => import('../../components/Page/Chart/Chart'))
 
 import { CSSTransition } from 'react-transition-group'
 
@@ -36,6 +35,7 @@ class Home extends Component<RouteComponentProps> {
           <Route path={'/call/device'} component={Device} />
           <Route path={'/call/platform'} component={Platform} />
           <Route path={'/call/prize'} component={PrizeList} />
+          <Route path={'/call/data'} component={ChartData} />
           <Route path={'/call/password'} component={ModifyPassword} />
           <Route excat path={'/call/home'} component={PageHome} />
           <Route component={Error404Page} />
