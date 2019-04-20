@@ -20,6 +20,7 @@ const Error404Page = lazy(() =>
 )
 const ChartData = lazy(() => import('../../components/Page/Chart/Chart'))
 
+const Overview  = lazy(() => import('../../components/Page/My/Help/Overview/Overview'))
 import { CSSTransition } from 'react-transition-group'
 
 class Home extends Component<RouteComponentProps> {
@@ -29,6 +30,7 @@ class Home extends Component<RouteComponentProps> {
       <Suspense fallback={null}>
         <Switch>
           <Route path={'/call/my'} component={My} />
+          <Route path={'/call/overview'} component={Overview} />
           <Route path={'/call/help'} component={Help} />
           <Route path={'/call/feedback'} component={Feedback} />
           <Route path={'/call/verify'} component={Verify} />

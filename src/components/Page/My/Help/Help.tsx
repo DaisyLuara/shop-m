@@ -8,6 +8,9 @@ import { ProductData } from './ProductData'
 import './Help.scss'
 const Panel = Accordion.Panel
 class Help extends Component<any> {
+  FileRead = (url:string) => {
+    this.props.history.push(url)
+  }
   AccordionItem = () => {
     let children: any = []
     ProductData.map((r: any) => {
@@ -33,7 +36,11 @@ class Help extends Component<any> {
           }
         >
           {r.children.map((c: any) => (
-            <div className="product_introduce_detail-item" key={c.id}>
+            <div
+              className="product_introduce_detail-item"
+              key={c.id}
+              onClick={() => this.FileRead(c.url)}
+            >
               <div className="product_introduce_detail-item-title">
                 {c.title}
               </div>
