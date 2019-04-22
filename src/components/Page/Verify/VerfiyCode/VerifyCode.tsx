@@ -13,7 +13,6 @@ class VerifyCode extends Component<any> {
   }
   submit = () => {
     this.props.form.validateFields({ force: true }, (error: any) => {
-      console.log(error)
       if (!error) {
         let args = this.props.form.getFieldsValue()
         if (args.code.length === 13) {

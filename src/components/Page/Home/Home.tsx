@@ -10,6 +10,8 @@ import moment from 'moment'
 import { Chart, Geom, Axis } from 'bizcharts'
 import { getPersonTimes } from '../../../api/chart/chartData'
 const DataSet = require('@antv/data-set')
+import queryString from 'query-string'
+
 class PageHome extends Component<any> {
   state = {
     looktimes: 0,
@@ -87,12 +89,16 @@ class PageHome extends Component<any> {
           loading: false
         })
       }
-      console.log(err)
       console.log(err.response)
       // Toast.fail(err.response.data.message, 3)
     }
   }
   componentDidMount() {
+    let values = queryString.parse(this.props.location.search)
+    if(!values.flag){
+      let url = window.location.href + '?flag=has'
+      window.location.assign(url);
+    }
     this._isMounted = true
     this.init()
   }
