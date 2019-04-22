@@ -122,7 +122,7 @@ class FeedbackSave extends Component<any> {
           onChange={this.onChange}
           onImageClick={(index, fs) => console.log(index, fs)}
           selectable={files.length < 5}
-          multiple={true}
+          multiple={false}
         />
 
         <div className="feedback-list_btn" onClick={this.onSubmit}>

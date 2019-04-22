@@ -129,7 +129,7 @@ class FeedbackDetail extends Component<any, State> {
           <div
             style={{
               marginTop: 20,
-              height: 470,
+              height: 'auto',
               display: 'flex',
               alignItems: 'center'
             }}
