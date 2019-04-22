@@ -47,7 +47,7 @@ class VerifyCode extends Component<any> {
   }
   async verifyCouponCode(args: any) {
     try {
-      await verifyCoupon(args)
+      let res = await verifyCoupon(args)
       Toast.success('核销成功!')
       this.props.form.resetFields()
       this.props.history.push('/call/verify/record')
@@ -57,7 +57,7 @@ class VerifyCode extends Component<any> {
   }
   render() {
     const { history } = this.props
-    const code = this.props.location.query ? this.props.location.query.code : '1222222222222'
+    const code = this.props.location.query ? this.props.location.query.code : ''
     const { getFieldProps } = this.props.form
     return (
       <div className="verify-code">
