@@ -13,6 +13,7 @@ class VerifyCode extends Component<any> {
   }
   submit = () => {
     this.props.form.validateFields({ force: true }, (error: any) => {
+      console.log(error)
       if (!error) {
         let args = this.props.form.getFieldsValue()
         if (args.code.length === 13) {
@@ -56,7 +57,7 @@ class VerifyCode extends Component<any> {
   }
   render() {
     const { history } = this.props
-    const code = this.props.location.query ? this.props.location.query.code : ''
+    const code = this.props.location.query ? this.props.location.query.code : '1222222222222'
     const { getFieldProps } = this.props.form
     return (
       <div className="verify-code">
@@ -68,9 +69,10 @@ class VerifyCode extends Component<any> {
           >
             <InputItem
               {...getFieldProps('code', {
+                initialValue:code,
                 rules: [{ required: true, message: '优惠券码不能为空' }]
               })}
-              defaultValue={code}
+              
               placeholder="请输入优惠券码"
               clear
               maxLength={13}
