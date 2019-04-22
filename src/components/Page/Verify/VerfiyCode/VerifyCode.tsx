@@ -9,7 +9,7 @@ const alert = Modal.alert
 
 class VerifyCode extends Component<any> {
   state = {
-    type: 'money'
+    type: 'money',
   }
   submit = () => {
     this.props.form.validateFields({ force: true }, (error: any) => {
@@ -44,18 +44,19 @@ class VerifyCode extends Component<any> {
       }
     })
   }
-
   async verifyCouponCode(args: any) {
     try {
       await verifyCoupon(args)
       Toast.success('核销成功!')
       this.props.form.resetFields()
+      this.props.history.push('/call/verify/record')
     } catch (e) {
       Toast.fail(e.response.data.message)
     }
   }
   render() {
     const { history } = this.props
+    const { code } = this.props.location.query ? this.props.location.query : ''
     const { getFieldProps } = this.props.form
     return (
       <div className="verify-code">
@@ -69,6 +70,7 @@ class VerifyCode extends Component<any> {
               {...getFieldProps('code', {
                 rules: [{ required: true, message: '优惠券码不能为空' }]
               })}
+              defaultValue={code}
               placeholder="请输入优惠券码"
               clear
               maxLength={13}

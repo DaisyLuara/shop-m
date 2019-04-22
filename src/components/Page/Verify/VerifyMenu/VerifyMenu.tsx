@@ -2,12 +2,17 @@ import React, { Component } from 'react'
 import { CDN } from '../../../../constant/cdn'
 import './VerifyMenu.scss'
 // @ts-ignore weixin-sdk 还没有ts.d
-import wx from 'weixin-js-sdk'
 import { wechat, qRCode } from '../../../../api/wechat/wechat'
+import { Toast } from 'antd-mobile'
 class VerifyMenu extends Component<any> {
   menuLinkHandle = (url: string, type: string) => {
     if (type === 'scanQR') {
-      wechat()
+      this.props.history.push({
+        pathname: url,
+        query: {
+          code: '5cb0673137f3'
+        }
+      })
       let that = this
       qRCode({
         desc: 'scanQRCode desc',
@@ -15,34 +20,24 @@ class VerifyMenu extends Component<any> {
         scanType: ['qrCode', 'barCode'], // 可以指定扫二维码还是一维码，默认二者都有
         success: function(res: any) {
           alert(JSON.stringify(res))
-          alert(JSON.stringify(res.resultStr))
-          // that.verifyForm.code = res.resultStr;
-          // that.getCouponStatus(res.resultStr);
+          that.props.history.push({
+            pathname: url,
+            query: {
+              code: res.resultStr
+            }
+          })
         },
-        error: function(e:any) {
+        error: function(e: any) {
           alert(e)
-          // Toast('扫码失败')
+          Toast.fail('扫码失败')
         }
       })
-      // wx.scanQRCode({
-      //   desc: 'scanQRCode desc',
-      //   needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
-      //   scanType: ['qrCode', 'barCode'], // 可以指定扫二维码还是一维码，默认二者都有
-      //   success: function(res: any) {
-      //     console.log(res)
-      //     // that.verifyForm.code = res.resultStr;
-      //     // that.getCouponStatus(res.resultStr);
-      //   },
-      //   error: function() {
-      //     Toast('扫码失败')
-      //   }
-      // })
     } else {
       this.props.history.push(url)
     }
   }
   componentDidMount() {
-   
+    wechat()
   }
   verifyMenu = () => {
     let data = [
@@ -57,7 +52,7 @@ class VerifyMenu extends Component<any> {
         id: 2,
         img_url: CDN.IMG_URL + 'shopM/img/sao_code_icon.png',
         name: '扫码核销',
-        url: '',
+        url: '/call/verify/code',
         type: 'scanQR'
       },
       {

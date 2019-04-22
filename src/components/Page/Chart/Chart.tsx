@@ -126,12 +126,12 @@ class ChartData extends Component<any, State> {
       let ageData: any = []
       ageColumnar.map((r: any) => {
         let item = {
-          '0-10': Number(r[0]),
-          '11-18': Number(r[1]),
-          '19-30': Number(r[2]),
-          '31-40': Number(r[3]),
-          '41-50': Number(r[4]),
-          '60+': Number(r[5]),
+          '0-10': Number(r[10]),
+          '11-18': Number(r[18]),
+          '19-30': Number(r[30]),
+          '31-40': Number(r[40]),
+          '41-50': Number(r[60]),
+          '60+': Number(r[61]),
           name: r.name
         }
 
