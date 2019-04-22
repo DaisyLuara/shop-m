@@ -28,12 +28,13 @@ axios.interceptors.response.use(
     // }
   },
   function(error) {
-    if (error.response.status === 401) {
-      handle401()
-      console.log(error.response)
-      Toast.fail(error.response.data.message, 3)
-    } else {
-      return Promise.reject(error)
-    }
+    console.log(error.response)
+    // if (error.response.status === 401) {
+    //   handle401()
+    //   console.log(error.response)
+    //   Toast.fail(error.response.data.message, 3)
+    // } else {
+    //   return Promise.reject(error)
+    // }
   }
 )
