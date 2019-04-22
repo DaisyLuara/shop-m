@@ -21,6 +21,7 @@ class VerifyMenu extends Component<any> {
           })
         },
         error: function(e: any) {
+          alert(e)
           Toast.fail('扫码失败')
         }
       })

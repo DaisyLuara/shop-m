@@ -5,6 +5,8 @@ import baseENV from '../http/server'
 
 // 微信扫一扫
 export const qRCode = (scanQrCodeObject:any) => {
+  alert(1)
+  alert(JSON.stringify(scanQrCodeObject))
   wx.scanQRCode(scanQrCodeObject)
 }
 
@@ -15,6 +17,7 @@ export const wechat = ()=>{
       .get(requestUrl)
       .then(response => {
         // sign返回格式
+        alert(JSON.stringify(response))
         let r = response.data
         wx.config({
           debug: false,
@@ -33,6 +36,7 @@ export const wechat = ()=>{
         })
       })
       .catch(e => {
+        alert(e)
         reject(e)
       })
   })
