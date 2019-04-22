@@ -9,7 +9,7 @@ import { createForm } from 'rc-form'
 class FeedbackSave extends Component<any> {
   state = {
     files: [],
-    photo_media_ids: []
+    photo_media_ids: [],
   }
   _isMounted = false
   componentDidMount() {
@@ -37,7 +37,6 @@ class FeedbackSave extends Component<any> {
         })
         return
       }
-
       let args: any = new FormData()
       args.append('file', file)
       args.append('type', 'image')
@@ -66,7 +65,12 @@ class FeedbackSave extends Component<any> {
         photo_media_ids.length > 0
           ? (args.photo_media_ids = photo_media_ids)
           : null
-        this.save(args)
+          let length = this.state.files.length
+          if(length === photo_media_ids.length){
+            this.save(args)
+          }else{
+            Toast.fail('图片正在上传，请稍后.')
+          }
       } else {
         if (error.content && error.title) {
           Toast.fail('请先填写!')
