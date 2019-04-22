@@ -7,18 +7,13 @@ import { Toast } from 'antd-mobile'
 class VerifyMenu extends Component<any> {
   menuLinkHandle = (url: string, type: string) => {
     if (type === 'scanQR') {
-      this.props.history.push({
-        pathname: url,
-        query: {
-          code: '5cb0673137f3'
-        }
-      })
       let that = this
       qRCode({
         desc: 'scanQRCode desc',
         needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
         scanType: ['qrCode', 'barCode'], // 可以指定扫二维码还是一维码，默认二者都有
         success: function(res: any) {
+          alert(JSON.stringify(res))
           that.props.history.push({
             pathname: url,
             query: {
@@ -27,7 +22,6 @@ class VerifyMenu extends Component<any> {
           })
         },
         error: function(e: any) {
-          alert(e)
           Toast.fail('扫码失败')
         }
       })

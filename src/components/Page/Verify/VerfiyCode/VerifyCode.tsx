@@ -56,8 +56,9 @@ class VerifyCode extends Component<any> {
   }
   render() {
     const { history } = this.props
-    const { code } = this.props.location.query ? this.props.location.query : ''
+    const code = this.props.location.query ? this.props.location.query.code : ''
     const { getFieldProps } = this.props.form
+    alert(code)
     return (
       <div className="verify-code">
         <Header hasBack={true} title={'输码核销'} history={history} />
