@@ -134,7 +134,6 @@ class ChartData extends Component<any, State> {
           '60+': Number(r[61]),
           name: r.name
         }
-
         ageData.push(item)
       })
 
@@ -152,8 +151,8 @@ class ChartData extends Component<any, State> {
       timeAge.map((r: any) => {
         timeAgeData.push({
           time: r.display_name,
-          女性: r.count.female,
-          男性: r.count.male
+          女: r.count.female,
+          男: r.count.male
         })
       })
 
@@ -368,7 +367,7 @@ class ChartData extends Component<any, State> {
         <Geom
           type="intervalStack"
           position="ageKey*ageValue"
-          color={['name', ['#e95caf', '#23b6f4']]}
+          color={['name', ['#23b6f4', '#e95caf']]}
           style={{
             stroke: '#fff',
             lineWidth: 1
@@ -385,7 +384,7 @@ class ChartData extends Component<any, State> {
     const dv = ds.createView().source(this.state.timeAgeData)
     dv.transform({
       type: 'fold',
-      fields: ['女性', '男性'],
+      fields: ['女', '男'],
       // 展开字段集
       key: 'name',
       // key字段
