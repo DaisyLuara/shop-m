@@ -60,7 +60,7 @@ class Help extends Component<any> {
     return (
       <div style={{ marginBottom: '0.6rem' }}>
         <Header history={history} hasBack={true} title={'问题反馈'} />
-        <HeaderContent content={'电话客服工作时间：周一至周五 08:00 - 18:00'} />
+        <HeaderContent content={'电话客服工作时间：周一至周五 09:30 - 18:00'} />
         <div className="product_introduce">
           <Accordion defaultActiveKey="1">{PanelItem()}</Accordion>
         </div>

@@ -151,7 +151,7 @@ class PageHome extends Component<any> {
       }
     }
     let ChartDataBlock = (
-      <Chart height={150} data={dv} forceFit padding={[10, 10, 30, 35]}>
+      <Chart height={150} data={dv} forceFit padding={[10, 10, 30, 45]}>
         <Axis name="day" label={label} />
         <Axis
           name="number"
