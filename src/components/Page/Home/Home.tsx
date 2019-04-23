@@ -94,11 +94,19 @@ class PageHome extends Component<any> {
     }
   }
   componentDidMount() {
-    let values = queryString.parse(this.props.location.search)
-    if(!values.flag){
-      let url = window.location.href + '?flag=has'
-      window.location.assign(url);
+    let values: any = queryString.parse(this.props.location.search)
+    if (JSON.stringify(values) !== '{}') {
+      if (!values.flag) {
+        let url = window.location.href + '&flag=has'
+        window.location.assign(url)
+      }
+    } else {
+      if (!values.flag) {
+        let url = window.location.href + '?flag=has'
+        window.location.assign(url)
+      }
     }
+
     this._isMounted = true
     this.init()
   }
