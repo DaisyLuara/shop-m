@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { List, TextareaItem, ImagePicker, Toast } from 'antd-mobile'
-import { saveImage } from '../../../../../../api/upload/upload'
+import {
+  saveKeyToService,
+  getQiniuToken,
+  saveImgToQiniu
+} from '../../../../../../api/upload/upload'
 import { saveFeedback } from '../../../../../../api/feedback/feedback'
 import './FeedbackSave.scss'
 // @ts-ignore 没有ts.d文件
@@ -10,6 +14,7 @@ class FeedbackSave extends Component<any> {
   state = {
     files: [],
     photo_media_ids: [],
+    qiniuToken: ''
   }
   _isMounted = false
   componentDidMount() {
@@ -18,6 +23,16 @@ class FeedbackSave extends Component<any> {
   componentWillUnmount() {
     this._isMounted = false
   }
+
+  qiniuToken = async () => {
+    let res = await getQiniuToken()
+    if (this._isMounted) {
+      this.setState({
+        qiniuToken: res
+      })
+    }
+  }
+
   onChange = (files: Array<any>, type: any, index: any) => {
     const { photo_media_ids } = this.state
     let media_ids: any = photo_media_ids
@@ -37,17 +52,36 @@ class FeedbackSave extends Component<any> {
         })
         return
       }
+      let name = file.name
+      let time = new Date().getTime()
+      let random = parseInt(String(Math.random() * 10 + 1), 10)
+      let suffix = time + '_' + random + '_' + name
+      let key = encodeURI(`${suffix}`)
       let args: any = new FormData()
       args.append('file', file)
-      args.append('type', 'image')
-      saveImage(args)
-        .then(res => {
-          media_ids.push(res.id)
-          this.setState({
-            photo_media_ids: media_ids
-          })
+      args.append('token', this.state.qiniuToken)
+      args.append('key', key)
+      saveImgToQiniu(args)
+        .then((res: any) => {
+          let toServiceArgs = {
+            key: res.key,
+            name: name,
+            size: size
+          }
+          saveKeyToService(toServiceArgs)
+            .then((response: any) => {
+              media_ids.push(response.id)
+              this.setState({
+                photo_media_ids: media_ids
+              })
+            })
+            .catch(e => {
+              Toast.fail(e.response.data.message)
+            })
         })
-        .catch(e => {})
+        .catch(err => {
+          Toast.fail(err)
+        })
     } else {
       photo_media_ids.splice(index, 1)
       this.setState({
@@ -56,7 +90,9 @@ class FeedbackSave extends Component<any> {
       })
     }
   }
-
+  componentWillMount() {
+    this.qiniuToken()
+  }
   onSubmit = async () => {
     const { photo_media_ids } = this.state
     this.props.form.validateFields({ force: true }, (error: any) => {
@@ -65,12 +101,12 @@ class FeedbackSave extends Component<any> {
         photo_media_ids.length > 0
           ? (args.photo_media_ids = photo_media_ids)
           : null
-          let length = this.state.files.length
-          if(length === photo_media_ids.length){
-            this.save(args)
-          }else{
-            Toast.fail('图片正在上传，请稍后.')
-          }
+        let length = this.state.files.length
+        if (length === photo_media_ids.length) {
+          this.save(args)
+        } else {
+          Toast.fail('图片正在上传，请稍后.')
+        }
       } else {
         if (error.content && error.title) {
           Toast.fail('请先填写!')

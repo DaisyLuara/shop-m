@@ -1,19 +1,55 @@
 import axios from 'axios'
 const UPLOAD_API = '/api/picture'
+const QINNIU_API = '/api/qiniu_oauth'
+const MEDIA_UPLOAD_AP = '/api/media_upload'
+import baseENV from '../http/server'
+
 
 interface responseArgs {
-  id: number
+  key: string,
+  name: string,
+  size: number
 }
-export const saveImage = (args: any): Promise<responseArgs> => {
-  console.log(args)
-  // let params = {
-  //   ...args
-  // }
-  console.log(args)
-  return new Promise(function(resolve, reject) {
+
+
+interface responseQiNiuArgs {
+  key: string,
+  hash: string,
+}
+export const saveKeyToService = (args: any): Promise<responseArgs> => {
+  return new Promise(function (resolve, reject) {
     axios
-      .post(UPLOAD_API, args)
+      .post(MEDIA_UPLOAD_AP, args)
       .then((res: any) => {
+        resolve(res.data)
+      })
+      .catch((err: any) => {
+        reject(err)
+      })
+  })
+}
+
+// 获得七牛token
+export const getQiniuToken = () => {
+  return new Promise(function (resolve, reject) {
+    axios
+      .get(QINNIU_API)
+      .then(response => {
+        resolve(response.data)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+export const saveImgToQiniu = (args: any): Promise<responseQiNiuArgs> => {
+  axios.defaults.baseURL = ''
+  return new Promise(function (resolve, reject) {
+    axios
+      .post('http://upload.qiniu.com', args)
+      .then((res: any) => {
+        axios.defaults.baseURL = baseENV.SERVER_URL
         resolve(res.data)
       })
       .catch((err: any) => {
