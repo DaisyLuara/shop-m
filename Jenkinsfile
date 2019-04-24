@@ -37,7 +37,7 @@ sudo chown -R larryz:larryz  /data/code/actiview-shop-m/build''', execTimeout: 1
         }
      stage('delete') {
           steps {
-       sh '''cd /var/lib/jenkins/workspace/dev-pc/actiview-shop-m-pipeline/build
+       sh '''cd /var/lib/jenkins/workspace/actiview-shop-m-pipeline/build
             rm -fr *.tar.gz
            ssh -p 22 larryz@120.27.138.242 " cd /home/larryz/dev-shop-m && rm -fr *.tar.gz"'''
       }
