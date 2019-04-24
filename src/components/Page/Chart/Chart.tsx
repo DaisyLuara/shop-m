@@ -367,7 +367,7 @@ class ChartData extends Component<any, State> {
         <Geom
           type="intervalStack"
           position="ageKey*ageValue"
-          color={['name', ['#23b6f4', '#e95caf']]}
+          color={['name', ['#e95caf', '#23b6f4']]}
           style={{
             stroke: '#fff',
             lineWidth: 1
